@@ -1,0 +1,23 @@
+https://cs50.harvard.edu/python/weeks/0/
+
+
+type code followed by file name for python to create that file
+    for example code python.python
+
+You can use python hello.py to run a program.  You can also use python3 or just py if python hello.py doesnt work.
+
+Use '#' symbol for comments.  Use """..."""(triple quotes) for multiline comments.
+
+Function is an action or verb that lets you do something. for e.g. print()
+
+An argument is an input to a fucntion.  For e.g. print ("hello, world").  Here hello world is the argument
+
+A variable is a placeholder for a value.  We use '=' as the assignment operator.
+
+If you pass multiple arguments to print it automatically adds a space inbetween. So you can just type print("hello, ",name)
+
+Print function uses end=\n to automatically append new line and sep=" " to automatically add space between arguments.  you can change them to either remove them or add custom separators or end actions.
+
+Use / as the escape character if you need to print something in "". i.e. /"friends/".  This would print friend along with the double quotes
+
+
