@@ -20,4 +20,3 @@ Print function uses end=\n to automatically append new line and sep=" " to autom
 
 Use / as the escape character if you need to print something in "". i.e. /"friends/".  This would print friend along with the double quotes
 
-
