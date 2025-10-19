@@ -33,12 +33,11 @@ def count_error(lines):
     warning_count = 0
     for line in lines:
         line_lower = line.lower()
-        if "error:" in line_lower:
+        if "error" in line_lower:
             error_count += 1
-    if "warning" in lines:
+        if "warning" in line_lower:
             warning_count += 1
     return line_count, error_count, warning_count
-
 
 
 # display_summary(data) - Print results
