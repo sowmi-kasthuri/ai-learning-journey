@@ -39,7 +39,6 @@ def count_error(lines):
             warning_count += 1
     return line_count, error_count, warning_count
 
-
 # display_summary(data) - Print results
 def display_summary(stats):
      line_count, error_count, warning_count = stats
