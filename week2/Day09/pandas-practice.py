@@ -1,7 +1,7 @@
 # pandas practicse
 import pandas as pd
 # print(pd.__version__)
-df = pd.DataFrame([[1,2,3],[4,5,6],[7,8,9]], columns = ["A" , "B", "C"])
+# df = pd.DataFrame([[1,2,3],[4,5,6],[7,8,9]], columns = ["A" , "B", "C"])
 
 # print(df)
 
@@ -28,7 +28,7 @@ print(df.shape)
 '''
 
 # read csv file from /warmup folder
-coffee = pd.read_csv("./warmup/coffee.csv")
+# coffee = pd.read_csv("./warmup/coffee.csv")
 #print(coffee.head())
 '''
 print(coffee.loc[[0,1,2,3,4]])
@@ -95,10 +95,21 @@ print(coffee[(coffee["Revenue"] >= 2000) & (coffee["Revenue"] <= 2200)])
 #4. Indexing & Slicing
 #Print only the data for dates between 2025-10-03 and 2025-10-05 (inclusive).
 #Select rows by integer index for the 5th to 10th entries using .iloc.
-
+'''
 print(coffee.dtypes)
 coffee["Date"] = pd.to_datetime(coffee["Date"])
 print(coffee.dtypes)
 print(coffee[(coffee["Date"] >= "2025-10-03") & (coffee["Date"] <= "2025-10-05")])
 print("----------------------------------------------")
 print(coffee.iloc[5:10])
+'''
+
+# Open the olympics datasheet (bios.xlsx) and rename
+
+bios = pd.read_excel("./warmup/bios.xlsx")
+print(bios.head())
+
+# height > 215
+bios["Measurements"] = pd.to_numeric(bios["Measurements"], errors="coerce") # converts to numeric.  
+# errors = 'coerce' converts values that cannot be converted to NaN or unknown
+print(bios.loc[bios["Measurements"] > 215])
