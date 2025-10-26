@@ -124,7 +124,46 @@ print(bios[bios["name"].str.contains("keith | patrick", case=0)]) # string searc
 # print(bios.query("born_country == 'IND' and born_city == 'Chennai (Madras)'"))
 
 # adding new column...and conditionally updating values
+'''
 print(coffee.head())
 print("----------------------------------------------")
-coffee["new_price"] = np.where(coffee["Product"] == "Espresso",3.99,5.99)
+coffee["new_price"] = np.where(coffee["Product"] == "Espresso",3.99,5.99) # create a new column
+'''
+'''
+# dropping a column
 print(coffee.head())
+coffee["new_price"] = np.where(coffee["Product"] == "Espresso",3.99,5.99) # create a new column
+
+print(coffee.head())
+coffee.drop(columns=['new_price'], inplace=True)
+print(coffee.head())
+
+# column operations - New column cost by dividing revenue and cups sold
+print("----------------------------------------------")
+coffee["cost"] = coffee["Revenue"] / coffee["Cups_Sold"]
+print(coffee.head())
+
+# column operations - Rename cost column
+print("----------------------------------------------")
+print("----------------------Rename Columns------------------------")
+coffee.rename(columns={'cost':'Total_Cost'}, inplace=True) 
+# OR USE coffee = coffee.rename(columns={'cost':'Total_Cost'}) 
+print(coffee.head())
+'''
+'''
+# Adding or removing columns string operations
+bios_new = bios.copy()
+print(bios_new.head())
+bios_new["first_name"] = bios_new["name"].str.split(" ").str[0]
+print("----------------------------------------------")
+print("----------------------new Column------------------------")
+print(bios_new.head())
+print("----------------------------------------------")
+print(bios_new.query("first_name == 'Keith'"))
+print("----------------------------------------------")
+print("----------------------Case insensitive query------------------------")
+print(bios_new.query("first_name.str.lower() == 'keith'"))
+'''
+# Dataframe pivots
+# pivot = coffee.pivot(columns= "Product", index= "Date", values="Revenue")
+print(coffee.pivot(columns= "Product", index= "Date", values="Revenue").sum(axis=0))
