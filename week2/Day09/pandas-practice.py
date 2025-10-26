@@ -1,4 +1,5 @@
 # pandas practicse
+import numpy as np
 import pandas as pd
 # print(pd.__version__)
 # df = pd.DataFrame([[1,2,3],[4,5,6],[7,8,9]], columns = ["A" , "B", "C"])
@@ -28,7 +29,7 @@ print(df.shape)
 '''
 
 # read csv file from /warmup folder
-# coffee = pd.read_csv("./warmup/coffee.csv")
+coffee = pd.read_csv("./warmup/coffee.csv")
 #print(coffee.head())
 '''
 print(coffee.loc[[0,1,2,3,4]])
@@ -106,10 +107,24 @@ print(coffee.iloc[5:10])
 
 # Open the olympics datasheet (bios.xlsx) and rename
 
-bios = pd.read_excel("./warmup/bios.xlsx")
-print(bios.head())
+bios = pd.read_excel("./warmup/olympics-data.xlsx")
+# print(bios.head())
 
-# height > 215
-bios["Measurements"] = pd.to_numeric(bios["Measurements"], errors="coerce") # converts to numeric.  
-# errors = 'coerce' converts values that cannot be converted to NaN or unknown
-print(bios.loc[bios["Measurements"] > 215])
+# Filtering data
+'''
+print(bios.loc[bios["height_cm"] > 220])
+print(bios.loc[bios["height_cm"] > 220, ["name","born_date","height_cm"]]) # specific columns\
+print(bios[bios["height_cm"] > 220] [["name","height_cm"]]) # shortcut without.loc method
+print(bios[(bios["height_cm"] > 215) & (bios["born_country"] == "USA")][["name","height_cm","born_country"]])
+print(bios[(bios["weight_kg"] <= 100) & (bios["born_country"] == "IND")][["name","born_country","weight_kg"]])
+print(bios[bios["name"].str.contains("keith | patrick", case=0)]) # string search - case insensitive
+
+'''
+# filtering using query
+# print(bios.query("born_country == 'IND' and born_city == 'Chennai (Madras)'"))
+
+# adding new column...and conditionally updating values
+print(coffee.head())
+print("----------------------------------------------")
+coffee["new_price"] = np.where(coffee["Product"] == "Espresso",3.99,5.99)
+print(coffee.head())
