@@ -16,13 +16,13 @@
 - CSV/JSON file handling
 
 ### Weekly Goals:
-- [ ] CS50 Lectures 3-4 completed
-- [ ] Problem Sets 3-4 solved
-- [ ] NumPy basics practiced
-- [ ] Pandas fundamentals learned
+- [✅] CS50 Lectures 3-4 completed
+- [✅] Problem Sets 3-4 solved
+- [✅] NumPy basics practiced
+- [✅] Pandas fundamentals learned
 - [ ] 25+ Exercism problems solved
 - [ ] 1 data analysis project built
-- [ ] 7 consecutive days coding 🟩🟩🟩🟩🟩🟩🟩
+- [✅ ] 7 consecutive days coding 🟩🟩🟩🟩🟩🟩🟩
 
 ---
 
@@ -89,10 +89,10 @@ git push
 ```
 
 **Day 6 Goals:**
-- [ ] Understand try/except/else/finally
-- [ ] Handle multiple exception types
-- [ ] Problem Set 3 complete
-- [ ] 5 Exercism problems solved
+- [✅] Understand try/except/else/finally
+- [✅] Handle multiple exception types
+- [✅] Problem Set 3 complete
+- [✅] 5 Exercism problems solved
 
 ---
 
@@ -156,10 +156,10 @@ git push
 ```
 
 **Day 7 Goals:**
-- [ ] Understand import and modules
-- [ ] Use random, statistics libraries
-- [ ] Install packages with pip
-- [ ] Problem Set 4 complete
+- [✅] Understand import and modules
+- [✅] Use random, statistics libraries
+- [✅] Install packages with pip
+- [✅] Problem Set 4 complete
 
 ---
 
@@ -221,9 +221,9 @@ git push
 ```
 
 **Day 8 Goals:**
-- [ ] Understand NumPy arrays
-- [ ] Do basic array operations
-- [ ] Know when to use NumPy vs lists
+- [✅] Understand NumPy arrays
+- [✅] Do basic array operations
+- [✅] Know when to use NumPy vs lists
 
 ---
 
@@ -287,10 +287,10 @@ git push
 ```
 
 **Day 9 Goals:**
-- [ ] Read/write CSV files
-- [ ] Filter DataFrame rows
-- [ ] Calculate basic statistics
-- [ ] Understand DataFrame structure
+- [✅] Read/write CSV files
+- [✅] Filter DataFrame rows
+- [✅] Calculate basic statistics
+- [✅] Understand DataFrame structure
 
 ---
 
@@ -340,10 +340,10 @@ git push
 ```
 
 **Day 10 Goals:**
-- [ ] Clean messy data
-- [ ] Handle missing values
-- [ ] Perform basic analysis
-- [ ] Export clean data
+- [✅] Clean messy data
+- [✅] Handle missing values
+- [✅] Perform basic analysis
+- [✅] Export clean data
 
 ---
 
@@ -427,24 +427,24 @@ git push
 By Sunday, Oct 27:
 
 **Learning:**
-- [ ] Exceptions mastered
-- [ ] Can use Python libraries
-- [ ] NumPy basics solid
-- [ ] Pandas fundamentals clear
-- [ ] Can read/clean CSV data
+- [✅] Exceptions mastered
+- [✅] Can use Python libraries
+- [✅] NumPy basics solid
+- [✅] Pandas fundamentals clear
+- [✅] Can read/clean CSV data
 
 **Output:**
-- [ ] Lectures 3-4 ✅
-- [ ] Problem Sets 3-4 ✅
-- [ ] 25+ Exercism problems ✅
-- [ ] 1 data project built ✅
-- [ ] 7 consecutive coding days 🟩×7
+- [✅] Lectures 3-4 ✅
+- [✅] Problem Sets 3-4 ✅
+- [✅] 25+ Exercism problems ✅
+- [❌] 1 data project built - Couldnt do.  Got bogged down on Pandas
+- [✅] 7 consecutive coding days 🟩×7
 
 **GitHub:**
-- [ ] week2/ folder organized
-- [ ] All code committed
-- [ ] Project with README
-- [ ] 12/70 green squares total
+- [✅] week2/ folder organized
+- [✅] All code committed
+- [❌] Project with README - Got tied down on Pandas
+- [✅] 12/70 green squares total
 
 ---
 
