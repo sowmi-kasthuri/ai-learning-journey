@@ -20,9 +20,9 @@
 - [✅] Problem Sets 3-4 solved
 - [✅] NumPy basics practiced
 - [✅] Pandas fundamentals learned
-- [ ] 25+ Exercism problems solved
-- [ ] 1 data analysis project built
-- [✅ ] 7 consecutive days coding 🟩🟩🟩🟩🟩🟩🟩
+- [❌] 25+ Exercism problems solved
+- [❌] 1 data analysis project built
+- [✅] 7 consecutive days coding 🟩🟩🟩🟩🟩🟩🟩
 
 ---
 
