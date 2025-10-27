@@ -45,5 +45,75 @@ print(r)
 '''
 
 # handling timeouts
-r = requests.get('https://httpbin.org/delay/1',timeout=3)
+'''
+r = requests.get('https://httpbin.org/delay/6',timeout=3)
 print(r)
+'''
+
+# https://jsonplaceholder.typicode.com/
+'''
+# Get list of posts
+r = requests.get("https://jsonplaceholder.typicode.com/posts")
+print(r.status_code)
+print(r.json()[0])  # print first post
+'''
+
+# Get posts by user
+'''
+r = requests.get("https://jsonplaceholder.typicode.com/posts", params={"userId": 1})
+print(r.json())
+'''
+
+# Create a post (POST request)
+'''
+payload = {"title" : "Test" , "body" : "Learning API" , "userid" : 1}
+r = requests.post("https://jsonplaceholder.typicode.com/posts", json = payload) #json method sends the payload in the body and not in the URL
+print(r.json())
+'''
+
+# 👉 Site: https://randomuser.me/api/  - Returns randomly generated user data.
+# this is for sinle user in response
+'''
+r = requests.get('https://randomuser.me/api/')
+data = r.json()
+
+print(data)
+user = data["results"][0]
+print(user["name"]["first"], user["name"]["last"])
+print(user["location"]["country"])
+'''
+
+# get multiple users in response
+'''
+r = requests.get('https://randomuser.me/api/', params={"results" : 5})
+data = r.json()
+print(data)
+
+for user in data["results"]:  # Loop through the json response and print the user detail
+    name = user["name"]
+    gender = user["gender"]
+    email = user["email"]
+    fname = name["first"] + " " + name["last"]
+    print(fname + ' ---' + gender + '---' + email)
+'''
+
+# Print details of users from India
+'''
+r = requests.get('https://randomuser.me/api/', params={"results" : 10, "nat" : "IN,US"})
+data = r.json()
+print(data)
+
+for user in data["results"]:
+    name = user["name"]
+    gender = user["gender"]
+    email = user["email"]
+    fname = name["title"] + ". " + name["first"] + " " + name["last"]
+    print(fname + ' --- ' + gender + ' --- ' + email)
+'''
+
+# 🐈 3. Cat Facts
+# 👉 Site: https://catfact.ninja/fact
+for _ in range(5):
+    r = requests.get("https://catfact.ninja/fact")
+    print(r.json()["fact"])
+    print("__________________________________________________")
