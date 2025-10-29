@@ -4,3 +4,13 @@
 [2025-10-29 17:00:09] CREATE - SUCCESS - Post ID 101
 [2025-10-29 17:00:11] UPDATE - SUCCESS_NO_JSON - Post ID 101
 [2025-10-29 17:00:12] DELETE - SUCCESS - Post ID 101 - Status 200
+[2025-10-29 21:07:11] RUN - START - Starting run at 2025-10-29T21:07:11.788124
+[2025-10-29 21:07:13] CREATE - SUCCESS - Status : 201 - JSON returned
+[2025-10-29 21:07:13] CREATE - SUCCESS - Post ID 101 - HTTP 201
+[2025-10-29 21:07:13] READ - SUCCESS - Status : 200 - JSON returned
+[2025-10-29 21:07:14] UPDATE - FAILED_SERVER_ERROR - Status : 500 - TypeError: Cannot read properties of undefined (reading 'id')
+    at update (/app/node_modules/json-server/lib/server/router/plural.js:262:24)
+    at Layer.handle [as handle_request] (/app/node_module
+[2025-10-29 21:07:15] DELETE - SUCCESS - Status : 200 - JSON returned
+[2025-10-29 21:07:15] DELETE - SUCCESS - Post ID 101 - HTTP 200
+[2025-10-29 21:07:15] RUN - END - Completed at 2025-10-29T21:07:15.339046
