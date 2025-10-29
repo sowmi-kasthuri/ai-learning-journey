@@ -1,17 +1,15 @@
 # Fetch your GitHub repos and save them to a CSV using Pandas
+import sys, os
 import pandas as pd
 import requests
-import os
-from dotenv import load_dotenv
 
-# load env variables
-load_dotenv()
-token = os.getenv('GITHUB_TOKEN')
+from config.settings import GITHUB_KEY # Load Github API key from config settings 
+
 
 # API endpoint
 url = 'https://api.github.com/user/repos'
 headers = {
-    'Authorization': f'Bearer {token}',
+    'Authorization': f'Bearer {GITHUB_KEY}',
     'Accept': 'application/vnd.github.v3+json'
 }
 
