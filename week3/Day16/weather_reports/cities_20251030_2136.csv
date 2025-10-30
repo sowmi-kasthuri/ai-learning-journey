@@ -1,0 +1,4 @@
+city,temperature,humidity,weather_description,wind_speed,timestamp
+Hyderabad,24.23,73,haze,2.57,20251030_2136
+Chennai,28.84,84,scattered clouds,3.13,20251030_2136
+Pune,21.08,92,overcast clouds,2.39,20251030_2136

@@ -1,0 +1,26 @@
+[
+  {
+    "city": "Hyderabad",
+    "temperature": 24.23,
+    "humidity": 73,
+    "weather_description": "haze",
+    "wind_speed": 2.57,
+    "timestamp": "20251030_2136"
+  },
+  {
+    "city": "Chennai",
+    "temperature": 28.84,
+    "humidity": 84,
+    "weather_description": "scattered clouds",
+    "wind_speed": 3.13,
+    "timestamp": "20251030_2136"
+  },
+  {
+    "city": "Pune",
+    "temperature": 21.08,
+    "humidity": 92,
+    "weather_description": "overcast clouds",
+    "wind_speed": 2.39,
+    "timestamp": "20251030_2136"
+  }
+]

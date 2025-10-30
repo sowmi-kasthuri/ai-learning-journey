@@ -1,0 +1,26 @@
+[
+  {
+    "city": "Hyderabad",
+    "temperature": null,
+    "humidity": null,
+    "weather_description": null,
+    "wind_speed": null,
+    "timestamp": "20251030_2127"
+  },
+  {
+    "city": "Chennai",
+    "temperature": null,
+    "humidity": null,
+    "weather_description": null,
+    "wind_speed": null,
+    "timestamp": "20251030_2127"
+  },
+  {
+    "city": "Pune",
+    "temperature": null,
+    "humidity": null,
+    "weather_description": null,
+    "wind_speed": null,
+    "timestamp": "20251030_2127"
+  }
+]
