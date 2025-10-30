@@ -8,7 +8,7 @@ url = 'https://randomuser.me/api/?results=10'
 timestamp = datetime.now().strftime("%Y%m%d_%H%M")
 
 # Create folder if it doesn’t exist
-os.makedirs("outputs", exist_ok=True)
+os.makedirs("github_repos", exist_ok=True)
 
 # dynamic filenames
 csv_file = f"outputs/users_{timestamp}.csv"
