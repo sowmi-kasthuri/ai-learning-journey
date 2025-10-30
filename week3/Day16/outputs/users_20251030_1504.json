@@ -1,0 +1,62 @@
+[
+  {
+    "name":"Abigail Hall",
+    "email":"abigail.hall@example.com",
+    "city":"Greymouth",
+    "country":"New Zealand"
+  },
+  {
+    "name":"Cristian Soto",
+    "email":"cristian.soto@example.com",
+    "city":"San Pedro de la Cueva",
+    "country":"Mexico"
+  },
+  {
+    "name":"Heather Gutierrez",
+    "email":"heather.gutierrez@example.com",
+    "city":"Bellevue",
+    "country":"United States"
+  },
+  {
+    "name":"Indira Gonzales",
+    "email":"indira.gonzales@example.com",
+    "city":"Sandoval",
+    "country":"Mexico"
+  },
+  {
+    "name":"Kenneth Dixon",
+    "email":"kenneth.dixon@example.com",
+    "city":"Launceston",
+    "country":"Australia"
+  },
+  {
+    "name":"Malthe Olsen",
+    "email":"malthe.olsen@example.com",
+    "city":"Kongsvinger",
+    "country":"Denmark"
+  },
+  {
+    "name":"Milena Ra\u0111en",
+    "email":"milena.raden@example.com",
+    "city":"Leposavi\u0107",
+    "country":"Serbia"
+  },
+  {
+    "name":"Silvija Male\u0161evi\u0107",
+    "email":"silvija.malesevic@example.com",
+    "city":"\u017dabari",
+    "country":"Serbia"
+  },
+  {
+    "name":"Tracey Stone",
+    "email":"tracey.stone@example.com",
+    "city":"Worcester",
+    "country":"United Kingdom"
+  },
+  {
+    "name":"Zenta Wittich",
+    "email":"zenta.wittich@example.com",
+    "city":"Hamm",
+    "country":"Germany"
+  }
+]

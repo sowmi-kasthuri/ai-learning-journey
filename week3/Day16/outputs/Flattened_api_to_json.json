@@ -1,0 +1,20 @@
+[
+  {
+    "name":"Krasnovida Ribak",
+    "email":"krasnovida.ribak@example.com",
+    "city":"Bolehiv",
+    "country":"Ukraine"
+  },
+  {
+    "name":"Stanley Doyle",
+    "email":"stanley.doyle@example.com",
+    "city":"Ennis",
+    "country":"Ireland"
+  },
+  {
+    "name":"Svetlana B\u00f6hme",
+    "email":"svetlana.bohme@example.com",
+    "city":"Romrod",
+    "country":"Germany"
+  }
+]
