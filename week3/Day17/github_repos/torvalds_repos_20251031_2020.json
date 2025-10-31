@@ -1,0 +1,65 @@
+[
+  {
+    "name": "1590A",
+    "language": "OpenSCAD",
+    "stargazers_count": 435,
+    "updated_at": "2025-10-27T05:25:33Z",
+    "html_url": "https://github.com/torvalds/1590A"
+  },
+  {
+    "name": "GuitarPedal",
+    "language": "OpenSCAD",
+    "stargazers_count": 1138,
+    "updated_at": "2025-10-31T07:37:01Z",
+    "html_url": "https://github.com/torvalds/GuitarPedal"
+  },
+  {
+    "name": "libdc-for-dirk",
+    "language": "C",
+    "stargazers_count": 282,
+    "updated_at": "2025-10-27T05:25:35Z",
+    "html_url": "https://github.com/torvalds/libdc-for-dirk"
+  },
+  {
+    "name": "libgit2",
+    "language": "C",
+    "stargazers_count": 229,
+    "updated_at": "2025-10-27T05:25:40Z",
+    "html_url": "https://github.com/torvalds/libgit2"
+  },
+  {
+    "name": "linux",
+    "language": "C",
+    "stargazers_count": 206047,
+    "updated_at": "2025-10-31T14:49:33Z",
+    "html_url": "https://github.com/torvalds/linux"
+  },
+  {
+    "name": "pesconvert",
+    "language": "C",
+    "stargazers_count": 454,
+    "updated_at": "2025-10-27T05:25:41Z",
+    "html_url": "https://github.com/torvalds/pesconvert"
+  },
+  {
+    "name": "subsurface-for-dirk",
+    "language": "C++",
+    "stargazers_count": 345,
+    "updated_at": "2025-10-27T05:25:36Z",
+    "html_url": "https://github.com/torvalds/subsurface-for-dirk"
+  },
+  {
+    "name": "test-tlb",
+    "language": "C",
+    "stargazers_count": 830,
+    "updated_at": "2025-10-27T05:25:37Z",
+    "html_url": "https://github.com/torvalds/test-tlb"
+  },
+  {
+    "name": "uemacs",
+    "language": "C",
+    "stargazers_count": 1624,
+    "updated_at": "2025-10-30T09:47:28Z",
+    "html_url": "https://github.com/torvalds/uemacs"
+  }
+]
