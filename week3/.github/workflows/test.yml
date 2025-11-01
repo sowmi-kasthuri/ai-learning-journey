@@ -1,20 +1,14 @@
-name: Run Currency Converter Tests
+name: Run Pytest with Coverage
 
 on:
   push:
-    paths:
-      - 'week3/project/currency_converter/**'
+    branches: [ main ]
   pull_request:
-    paths:
-      - 'week3/project/currency_converter/**'
+    branches: [ main ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: week3/project/currency_converter
 
     steps:
       - name: Checkout code
@@ -23,20 +17,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.10"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
           pip install pytest pytest-cov
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run tests with coverage
         run: |
-          pytest --cov=. --cov-report=term-missing --cov-report=xml
-
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: week3/project/currency_converter/coverage.xml
+          pytest --maxfail=1 --disable-warnings -q --cov=. --cov-report=xml
