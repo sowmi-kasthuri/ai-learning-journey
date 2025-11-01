@@ -21,6 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          pip install -r week3/project/currency_convertor/requirements.txt
           python -m pip install --upgrade pip
           pip install requests pytest pytest-cov
 
