@@ -26,6 +26,6 @@ jobs:
           pip install -r week3/project/github_extractor/requirements.txt
 
       - name: Run tests (only GitHub Extractor)
-        working-directory: week3/project/github_extractor
         run: |
-          pytest -v --maxfail=1 --disable-warnings
+          cd week3/project/github_extractor
+          pytest test_github_extractor.py -v --maxfail=1 --disable-warnings
