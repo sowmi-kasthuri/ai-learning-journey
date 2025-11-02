@@ -28,4 +28,4 @@ jobs:
       - name: Run tests (only GitHub Extractor)
         working-directory: week3/project/github_extractor
         run: |
-          pytest -v
+          pytest -v --maxfail=1 --disable-warnings
