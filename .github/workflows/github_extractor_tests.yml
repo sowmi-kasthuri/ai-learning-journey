@@ -2,7 +2,11 @@ name: GitHub Extractor Tests
 
 on:
   push:
-    branches: [ "main" ]
+    paths:
+      - "week3/project/github_extractor/**"
+  pull_request:
+    paths:
+      - "week3/project/github_extractor/**"
 
 jobs:
   test:
@@ -10,18 +14,21 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
       - name: Install dependencies
         run: |
-          pip install -r week3/project/github_extractor/requirements.txt
-          pip install pytest pytest-cov requests
+          cd week3/project/github_extractor
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov requests python-dotenv
 
-      - name: Run only GitHub Extractor tests
-        working-directory: week3/project/github_extractor
-        run: pytest -v --maxfail=1 --disable-warnings
+      - name: Run tests
+        run: |
+          cd week3/project/github_extractor
+          pytest --maxfail=1 --disable-warnings -q
