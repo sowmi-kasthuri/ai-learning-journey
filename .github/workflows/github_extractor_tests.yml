@@ -2,11 +2,7 @@ name: GitHub Extractor Tests
 
 on:
   push:
-    paths:
-      - "week3/project/github_extractor/**"
-  pull_request:
-    paths:
-      - "week3/project/github_extractor/**"
+    branches: [ "main" ]
 
 jobs:
   test:
@@ -24,10 +20,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r week3/project/github_extractor/requirements.txt
+          pip install pytest pytest-cov requests
 
       - name: Run only GitHub Extractor tests
-        run: |
-          cd week3/project/github_extractor
-          pytest -v --maxfail=1 --disable-warnings \
-            --ignore=../weather_tool \
-            --ignore=../currency_convertor
+        working-directory: week3/project/github_extractor
+        run: pytest -v --maxfail=1 --disable-warnings
