@@ -2,33 +2,28 @@ name: Weather Tool Tests
 
 on:
   push:
-    paths:
-      - "week3/project/weather_tool/**"
+    branches: [ "main" ]
   pull_request:
-    paths:
-      - "week3/project/weather_tool/**"
+    branches: [ "main" ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
 
-      - name: Install dependencies
-        run: |
-          cd week3/project/weather_tool
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install pytest pytest-cov requests
+    - name: Install dependencies
+      run: |
+        cd week3/project/weather_tool
+        pip install -r requirements.txt
 
-      - name: Run tests
-        run: |
-          cd week3/project/weather_tool
-          pytest --maxfail=1 --disable-warnings -q
+    - name: Run tests
+      run: |
+        cd week3/project/weather_tool
+        pytest --maxfail=1 --disable-warnings -q
