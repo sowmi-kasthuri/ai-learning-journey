@@ -25,6 +25,7 @@ jobs:
         run: |
           pip install -r week3/project/github_extractor/requirements.txt
 
-      - name: Run tests
+      - name: Run tests (only GitHub Extractor)
+        working-directory: week3/project/github_extractor
         run: |
-          pytest -v week3/project/github_extractor/test_github_extractor.py
+          pytest -v
