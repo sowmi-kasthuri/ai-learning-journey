@@ -69,7 +69,7 @@ def main():
         print(f"Fetched {len(repos)} repositories for {username}")
         save_data(username, repos)
     else:
-        print("Failed to fetch data.")
+        print("Failed to fetch data.") #
 
 if __name__ == "__main__":
     main()

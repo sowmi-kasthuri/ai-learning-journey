@@ -39,4 +39,4 @@ def get_weather(city, retries=3, delay=2):
 
 if __name__ == "__main__":
     city = input("Enter city name: ")
-    print(get_weather(city))
+    print(get_weather(city)) #
