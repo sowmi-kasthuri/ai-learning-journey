@@ -2,7 +2,6 @@ name: Weather Tool Tests
 
 on:
   push:
-    branches: [ "main" ]
     paths:
       - "week3/project/weather_tool/**"
       - ".github/workflows/weather_tests.yml"
