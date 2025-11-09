@@ -1,86 +1,60 @@
 # DevOps AI Assistant 🤖
 
-Your personal DevOps helper — built using OpenRouter API and Python.
+🧩 PROJECT SUMMARY — DevOps AI Assistant
+🎯 Goal
 
-Ask infrastructure questions, get AI troubleshooting help, and save your chat history automatically.
+Build a personal DevOps helper that:
 
----
+Answers infra / DevOps questions (via AI)
+Remembers past sessions
+Searches past solutions
+Exports Q&A answers
+Supports semantic (meaning-based) recall
 
-## ⚙️ Features
-
-✅ Ask DevOps questions (AWS, Docker, K8s, CI/CD, Terraform, etc.)  
-✅ AI responds with short, practical solutions  
-✅ Persistent conversation memory (per session)  
-✅ Saves all chats as JSON files in `chat_history/`  
-✅ Configurable model and API key via `.env`
-
-*(Coming soon)*  
-🔍 Search past solutions  
-📤 Export specific answers  
-🧠 Different modes: AWS / Docker / K8s  
-
----
-
-## 🏗️ Project Structure
-
+🏗️ Project Structure
 devops-ai-assistant/
-├── assistant.py # main entry point
-├── utils/
-│ ├── memory.py # (future) memory utilities
-│ ├── file_ops.py # (future) search/export functions
-│ └── config.py # (future) config loader
-├── chat_history/ # saved chat sessions
-├── .env # OpenRouter API key + model
+├── assistant.py              ← Main CLI orchestrator
+├── .env                      ← Contains OPENROUTER_API_KEY, MODEL, URL
 ├── requirements.txt
-└── README.md
+├── chat_history/             ← Auto-saved chat sessions (JSON)
+├── exports/                  ← Markdown exports & semantic results
+└── utils/
+    ├── config.py             ← API keys, headers, constants
+    ├── memory.py             ← ConversationMemory class
+    ├── file_ops.py           ← Chat search utilities
+    ├── export_ops.py         ← Export logic (keyword-based Q&A)
+    └── semantic_ops.py       ← Semantic search via embeddings
+
+✅ Features Completed
+Feature	Description	Status
+Core Assistant Loop	Handles input → AI → output	✅
+Persistent Memory	Saves session JSON automatically	✅
+Keyword Search	Finds answers by term match	✅
+Export	Creates Markdown Q&A dump	✅
+Semantic Search	Finds answers by meaning (embeddings)	✅
+Refactor	Modular utils-based architecture	✅
+Error Handling	Graceful warnings, fallback to AI	✅
+🧠 Tech Stack
+
+Language: Python 3.10+
+
+Libraries:
+openai, requests, python-dotenv, rich, sentence-transformers, numpy
+
+LLM Backend: OpenRouter API (GPT-4-mini)
+
+Embedding Model: all-MiniLM-L6-v2
+
+💡 Key Learnings
+Structured modular design — config, utils, and main separated cleanly.
+How to persist and reload conversations as JSON.
+Using embeddings to search by meaning, not just keywords.
+File operations, data handling, and error-safe AI loops.
+Practical application of RAG-lite techniques.
 
 
----
+## 🚀 How to Run
 
-## 🚀 Setup Instructions
-
-### 1. Clone & Create Virtual Environment
 ```bash
-git clone <repo_url>
-cd devops-ai-assistant
-python -m venv venv
-venv\Scripts\activate     # Windows
-# or
-source venv/bin/activate  # macOS/Linux
-
-2. Install Dependencies
 pip install -r requirements.txt
-
-3. Add Environment Variables
-OPENROUTER_API_KEY=your_openrouter_api_key_here
-OPENROUTER_API_URL=https://openrouter.ai/api/v1/chat/completions
-MODEL=meta-llama/llama-3.1-70b-instruct
-
-4. Run the Assistant
 python assistant.py
-
-Example session:
-You: How to restart a failed pod in Kubernetes?
-AI: You can delete the pod; the ReplicaSet or Deployment will recreate it automatically.
-You: exit
-💾 Chat saved to chat_history/session_20251108_173344.json
-
-
-💡 Tips
-Always run the script from the project root, where .env exists.
-Type exit or quit to end the session and save your chat.
-All conversations are stored as timestamped JSON files under chat_history/.
-
-🧰 Requirements
-Python 3.9+
-Internet access
-OpenRouter account with an API key (Free)
-
-🧭 Next Up
- Implement live streaming responses
- Add search through previous sessions
- Support multiple “modes” (e.g., AWS, Docker, K8s)
- Optional Markdown export of key answers
-
- 🧑‍💻 Author
-Built by Sowmi as part of the Week 4 Weekend Project — AI + DevOps Integration Challenge.

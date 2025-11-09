@@ -1,6 +1,10 @@
 openai
 python-dotenv
 requests
-rich          # for colored console output
-logging
+rich
 termcolor
+sentence-transformers
+numpy
+torch
+scikit-learn
+scipy

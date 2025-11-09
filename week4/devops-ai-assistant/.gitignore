@@ -1,0 +1,9 @@
+# Ignore runtime data
+chat_history/
+exports/
+
+# Ignore Python environment stuff
+__pycache__/
+venv/
+.env
+*.log
