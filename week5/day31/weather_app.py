@@ -25,7 +25,7 @@ while True:
         latitude = data["results"][0]["latitude"]
         longitude = data["results"][0]["longitude"]
 
-        print(f"latitude / longitude of {city} : {latitude} / {longitude}")
+        print(f"latitude / longitude of {city} : {latitude}° / {longitude}°")
 
         weather_url = (
             f"https://api.open-meteo.com/v1/forecast?"
