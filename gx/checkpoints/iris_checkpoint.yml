@@ -1,0 +1,21 @@
+name: iris_checkpoint
+config_version: 1.0
+class_name: Checkpoint
+run_name_template: "%Y-%m-%d-%H-%M-%S-iris"
+
+validations:
+  - batch_request:
+      datasource_name: iris_datasource
+      data_connector_name: inferred_data_connector
+      data_asset_name: iris
+    expectation_suite_name: iris_suite
+    action_list:
+      - name: store_validation_result
+        action:
+          class_name: StoreValidationResultAction
+      - name: store_evaluation_params
+        action:
+          class_name: StoreEvaluationParametersAction
+      - name: update_data_docs
+        action:
+          class_name: UpdateDataDocsAction

@@ -1,0 +1,21 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "iris_suite",
+  "expectations": [],
+  "ge_cloud_id": null,
+  "meta": {
+    "citations": [
+      {
+        "batch_request": {
+          "data_asset_name": "iris",
+          "data_connector_name": "inferred_data_connector",
+          "datasource_name": "iris_datasource",
+          "limit": 1000
+        },
+        "citation_date": "2025-11-18T15:41:29.520658Z",
+        "comment": "Created suite added via CLI"
+      }
+    ],
+    "great_expectations_version": "0.18.22"
+  }
+}
