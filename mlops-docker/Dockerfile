@@ -17,8 +17,12 @@ COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
+# Copy FastAPI app file
+COPY app.py .
+
 # Expose ports for MLflow/FastAPI
 EXPOSE 5000
 EXPOSE 8000
 
-CMD [ "bash" ]
+# Default command (compose overrides this)
+CMD ["bash"]
