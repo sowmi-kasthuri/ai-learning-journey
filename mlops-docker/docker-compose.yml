@@ -1,8 +1,21 @@
-version: "3.9"
-
 services:
   fastapi:
     build: .
     ports:
       - "8000:8000"
     command: uvicorn app:app --host 0.0.0.0 --port 8000
+
+  mlflow:
+    image: mlflow/mlflow:latest
+    container_name: mlflow-server
+    working_dir: /mlflow
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlflow:/mlflow
+    command: >
+      mlflow server
+        --backend-store-uri sqlite:///mlflow.db
+        --default-artifact-root /mlflow/artifacts
+        --host 0.0.0.0
+        --port 5000
