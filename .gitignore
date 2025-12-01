@@ -215,3 +215,4 @@ data/*.csv
 .ipynb_checkpoints/
 *.log
 .env
+mlops-docker/.venv311/
