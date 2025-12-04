@@ -1,3 +1,7 @@
-prefect
+griffe==0.44.0
+prefect==2.14.21
+pandas
+scikit-learn
+mlflow[scikit-learn]
 evidently
 prometheus_client
