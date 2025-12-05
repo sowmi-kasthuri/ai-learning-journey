@@ -1,11 +1,24 @@
-version: "3.9"
 services:
+
   mlflow:
-    build: ./mlflow_server
+    build:
+      context: ./mlflow_server
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"
+    volumes:
+      - ./mlruns:/mlflow
+    environment:
+      MLFLOW_BACKEND_STORE_URI: sqlite:///mlflow.db
+      MLFLOW_DEFAULT_ARTIFACT_ROOT: /mlflow
 
   trainer:
-    build: .
+    build:
+      context: ./docker_context
+      dockerfile: Dockerfile
     depends_on:
       - mlflow
+    environment:
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    volumes:
+      - ./mlruns:/mlflow   # <-- critical fix!

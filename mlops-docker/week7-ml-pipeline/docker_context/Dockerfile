@@ -6,6 +6,7 @@ COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
-COPY . .
+COPY train.py .
+COPY data ./data
 
 CMD ["python", "train.py"]

@@ -3,6 +3,7 @@ from sklearn.linear_model import LogisticRegression
 import mlflow
 import mlflow.sklearn
 import pickle
+import os
 
 def load_data():
     df = pd.read_csv("data/iris.csv")
@@ -28,15 +29,15 @@ def evaluate_model(model, df):
     return accuracy
 
 def log_results(model, accuracy):
-    import pickle
-    mlflow.set_tracking_uri("http://mlflow:5000")
     with mlflow.start_run():
         mlflow.log_param("model", "LogisticRegression")
         mlflow.log_metric("accuracy", accuracy)
-        with open("model.pkl", "wb") as f:
-            pickle.dump(model, f)
-        mlflow.log_artifact("model.pkl")
 
+        artifact_path = "/mlflow/model.pkl"
+        with open(artifact_path, "wb") as f:
+            pickle.dump(model, f)
+
+        mlflow.log_artifact(artifact_path)
 
 if __name__ == "__main__":
     df = load_data()
@@ -44,4 +45,3 @@ if __name__ == "__main__":
     model = train_model(df)
     accuracy = evaluate_model(model, df)
     log_results(model, accuracy)
-
