@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+groq
+openrouter
+python-dotenv
