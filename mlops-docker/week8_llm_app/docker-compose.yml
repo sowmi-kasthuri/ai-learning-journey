@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  llm-app:
+    build: .
+    container_name: llm_app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - mlflow
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    container_name: mlflow_server
+    ports:
+      - "5000:5000"
+    command: >
+      mlflow server
+      --backend-store-uri sqlite:///mlflow.db
+      --default-artifact-root s3://dummy/
+      --host 0.0.0.0
+      --port 5000
