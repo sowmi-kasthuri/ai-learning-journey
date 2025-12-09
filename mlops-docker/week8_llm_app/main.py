@@ -10,6 +10,8 @@ import logging
 import time
 import mlflow
 
+import uuid
+import json
 
 logging.basicConfig(
     level=logging.INFO,
@@ -17,6 +19,7 @@ logging.basicConfig(
 )
 
 app = FastAPI()
+
 mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
 mlflow.set_experiment(os.getenv("MLFLOW_EXPERIMENT_NAME", "llm-app"))
 
@@ -30,6 +33,9 @@ def health():
 
 @app.post("/generate")
 async def generate(req: GenReq):
+
+    # NEW trace_id
+    trace_id = str(uuid.uuid4())
 
     if not req.prompt:
         raise HTTPException(status_code=400, detail="prompt required")
@@ -47,8 +53,20 @@ async def generate(req: GenReq):
 
     mlflow.log_text(result["text"], "response.txt")
 
-    logging.info(
-        f"/generate | model={req.model} | tokens={result['tokens']} | latency={latency}ms"
-    )
-    return result
+    # NEW STRUCTURED LOG
+    log_record = {
+        "trace_id":trace_id,
+        "event": "generate_request",
+        "model": req.model,
+        "tokens": result["tokens"],
+        "latency_ms": latency,
+        "status": "success"
+    }
+
+    logging.info(json.dumps(log_record))
+
+    return {
+        "trace_id": trace_id,
+        **result
+    }
     
