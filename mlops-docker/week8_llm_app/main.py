@@ -19,6 +19,12 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)s | %(message)s"
 )
 
+stats = {
+    "total_requests": 0,
+    "total_errors": 0,
+    "total_cost": 0.0,
+    "avg_latency_ms": 0.0
+}
 app = FastAPI()
 
 mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
@@ -54,7 +60,9 @@ async def generate(req: GenReq):
             mlflow.log_param("prompt", req.prompt)
             mlflow.log_param("model", req.model)
 
-            mlflow.log_metric("tokens", result["tokens"])
+            mlflow.log_metric("input_tokens", result["input_tokens"])
+            mlflow.log_metric("output_tokens", result["output_tokens"])
+            mlflow.log_metric("total_tokens", result["total_tokens"])
             mlflow.log_metric("latency_ms", latency)
             mlflow.log_metric("cost", result["cost"])
 
@@ -67,20 +75,39 @@ async def generate(req: GenReq):
             "trace_id": trace_id,
             "event": "generate_request",
             "model": req.model,
-            "tokens": result["tokens"],
+            "input_tokens": result["input_tokens"],
+            "output_tokens": result["output_tokens"],
+            "total_tokens": result["total_tokens"],
             "latency_ms": latency,
-            "cost": f"{formatted_cost:.6f}",    # <–– fix
-            "status": "success"
+            "cost": f"{formatted_cost:.6f}",
+            "status": "success",
+            "stats": {
+                 "total_requests": stats["total_requests"] + 1,
+                "total_errors": stats["total_errors"],
+                "avg_latency_ms": stats["avg_latency_ms"],
+                "total_cost": stats["total_cost"] + formatted_cost
+            }
         }
 
         logging.info(json.dumps(success_log))
 
+        # Update stats
+        stats["total_requests"] += 1
+        stats["total_cost"] += formatted_cost
+
+        # rolling avg latency
+        stats["avg_latency_ms"] = (
+            (stats["avg_latency_ms"] * (stats["total_requests"] - 1)) + latency
+        ) / stats["total_requests"]
+
         return {
             "trace_id": trace_id,
             "text": result["text"],
-            "tokens": result["tokens"],
-            "latency_ms": result["latency_ms"],
-             "cost": f"{formatted_cost:.6f}"   # formatted cost
+            "input_tokens": result["input_tokens"],
+            "output_tokens": result["output_tokens"],
+            "total_tokens": result["total_tokens"],
+            "latency_ms": latency,     # consistent
+            "cost": f"{formatted_cost:.6f}"
         }
     
     except Exception as e:
@@ -91,12 +118,31 @@ async def generate(req: GenReq):
             "trace_id": trace_id,
             "event": "generate_request",
             "model": req.model,
-            "tokens": 0,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "total_tokens": 0,
             "latency_ms": latency,
             "cost": 0,
             "status": "error",
-            "error_message": str(e)
+            "error_message": str(e),
+            "stats": {
+                "total_requests": stats["total_requests"],
+                "total_errors": stats["total_errors"] + 1,
+                "avg_latency_ms": stats["avg_latency_ms"],
+                "total_cost": stats["total_cost"]
+
+            }
         }
         
         logging.error(json.dumps(error_log))
+        stats["total_errors"] += 1
         raise HTTPException(status_code=500, detail="LLM call failed")
+
+@app.get("/stats")
+def get_stats():
+    return {
+        "total_requests": stats["total_requests"],
+        "total_errors": stats["total_errors"],
+        "total_cost": float(f"{stats['total_cost']:.6f}"),
+        "avg_latency_ms": int(stats["avg_latency_ms"])
+    }

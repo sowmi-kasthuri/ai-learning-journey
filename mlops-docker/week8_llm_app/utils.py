@@ -33,13 +33,21 @@ async def call_llm(prompt: str, model: str="groq"):
     
          
     text = response.choices[0].message.content
-    tokens = response.usage.total_tokens if response.usage else 0
+    # tokens = response.usage.total_tokens if response.usage else 0
+    input_tokens = response.usage.prompt_tokens or 0
+    output_tokens = response.usage.completion_tokens or 0
+    total_tokens = response.usage.total_tokens or 0
+
     latency_ms = int((time.time() - start)*1000)
-    cost = round((tokens / 1_000_000) * 0.20, 6)
+
+    # Cost (Groq: $0.20 per 1M tokens)
+    cost = round((total_tokens / 1_000_000) * 0.20, 6)
     
     return {
         "text": text,
-        "tokens": tokens,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "total_tokens": total_tokens,
         "latency_ms": latency_ms,
         "cost": cost
     }

@@ -4,3 +4,5 @@ groq
 openrouter
 python-dotenv
 mlflow
+streamlit
+requests
