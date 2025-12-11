@@ -7,7 +7,7 @@ if FASTAPI_URL is None:
     st.error("FASTAPI_URL is not set. Please configure in Railway.")
     st.stop()
 
-#comment
+# DEBUG: test change######
 st.title("LLM Frontend (v0.2)")
 
 # Create 2 tabs
