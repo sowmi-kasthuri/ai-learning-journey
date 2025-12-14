@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+groq
+openrouter
+python-dotenv
+mlflow
+streamlit
+requests
+prometheus-client
