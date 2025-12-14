@@ -217,3 +217,5 @@ data/*.csv
 .env
 mlops-docker/.venv311/
 credit-card-fraud-detection/
+mlartifacts/
+mlflow.db
