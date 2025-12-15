@@ -22,3 +22,13 @@ services:
       --default-artifact-root s3://dummy/
       --host 0.0.0.0
       --port 5000
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - llm-app

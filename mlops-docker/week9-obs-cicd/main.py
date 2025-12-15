@@ -4,10 +4,11 @@ load_dotenv()     # <-- ensures .env loads inside Docker
 
 DEFAULT_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
-from fastapi import FastAPI,HTTPException
+from fastapi import FastAPI,HTTPException, Response
 from pydantic import BaseModel
 from utils import call_llm
 from prometheus_client import Counter
+from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
 
 import logging
 import time
@@ -42,6 +43,10 @@ class GenReq(BaseModel):
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+@app.get("/metrics")
+def metrics():
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 @app.post("/generate")
 async def generate(req: GenReq):
