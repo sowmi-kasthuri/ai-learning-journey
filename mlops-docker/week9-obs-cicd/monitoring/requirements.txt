@@ -1,0 +1,5 @@
+evidently==0.4.15
+pandas
+prometheus-client
+pydantic==1.10.13
+numpy<2

@@ -40,3 +40,11 @@ services:
       - "3000:3000"
     depends_on:
       - prometheus
+
+  drift-exporter:
+    build:
+      context: ./monitoring
+    container_name: drift_exporter
+    depends_on:
+      - prometheus
+
