@@ -183,3 +183,12 @@ Backend live
 MLflow live
 Full E2E production integration validated
 System is now ready for Week-9 (Quality + CI/CD).
+
+## 9. Load Testing – Local Observability Limitation (Week 9)
+
+- Load was generated against `/generate` using Docker-based k6
+- Request counter (`http_requests_total`) was observed incrementing in `/metrics`
+- Prometheus scrape targets remained UP during testing
+- `rate()` / `increase()` queries intermittently returned zero in local Docker setup
+- Root cause attributed to short-lived load bursts and scrape/window misalignment
+- Considered acceptable for Week 9 observability wiring validation

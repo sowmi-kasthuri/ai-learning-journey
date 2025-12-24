@@ -13,7 +13,6 @@ model_drift_score = Gauge(
     "Overall data drift score computed by Evidently"
 )
 
-
 def load_data():
     reference = pd.read_csv(REFERENCE_PATH)
     current = pd.read_csv(CURRENT_PATH)
