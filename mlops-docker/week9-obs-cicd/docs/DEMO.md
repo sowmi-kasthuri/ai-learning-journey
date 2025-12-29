@@ -70,3 +70,5 @@ Known limitation:
 - Practical MLOps observability
 - Cost and drift awareness
 - Senior-level decision making and trade-offs
+
+ A short demo GIF will be added to visually walk through the system flow.
