@@ -71,4 +71,13 @@ Known limitation:
 - Cost and drift awareness
 - Senior-level decision making and trade-offs
 
-Year-end checkpoint: MLOps portfolio complete, demo GIF pending.
+## 8. Demo
+
+This demo shows:
+
+- Prompt → FastAPI → LLM response
+- Metrics logged to MLflow
+- Runtime metrics exposed via Prometheus
+
+See demo.gif for the end-to-end flow.
+
