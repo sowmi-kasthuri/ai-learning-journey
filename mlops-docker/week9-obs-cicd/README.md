@@ -192,3 +192,7 @@ System is now ready for Week-9 (Quality + CI/CD).
 - `rate()` / `increase()` queries intermittently returned zero in local Docker setup
 - Root cause attributed to short-lived load bursts and scrape/window misalignment
 - Considered acceptable for Week 9 observability wiring validation
+
+## 10. Demo
+
+✅ Demo recording available (see DEMO.md)
